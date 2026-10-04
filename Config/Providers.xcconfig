@@ -1,0 +1,17 @@
+// Öffentliche Anbieter-Konfiguration für "Demonic Prompt Gen - Songanalyse".
+//
+// WICHTIG: Hier stehen nur öffentliche Werte (Client-IDs, Redirect-URLs) – niemals Client Secrets
+// oder private Schlüssel. Eigene Werte bitte in Config/Providers.local.xcconfig eintragen
+// (Vorlage: Providers.local.example.xcconfig). Diese Datei ist per .gitignore ausgeschlossen.
+//
+// Ohne Werte kompiliert die App trotzdem; die Integrationen zeigen dann "Noch nicht eingerichtet".
+
+// Spotify Web API (Authorization Code mit PKCE)
+SPOTIFY_CLIENT_ID =
+// In xcconfig-Dateien beginnt "//" einen Kommentar, daher "$()" als Trenner zwischen den Schrägstrichen.
+SPOTIFY_REDIRECT_URI = demonicpromptgen:/$()/spotify-callback
+
+// Google OAuth-Client vom Typ "iOS" (für die YouTube Data API v3), z. B. 1234-abcd.apps.googleusercontent.com
+GOOGLE_IOS_CLIENT_ID =
+
+#include? "Providers.local.xcconfig"

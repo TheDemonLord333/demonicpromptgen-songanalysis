@@ -1,0 +1,10 @@
+# Xcode
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+
+# Lokale Anbieter-Konfiguration (eigene Client-IDs)
+Config/Providers.local.xcconfig
+
+.DS_Store

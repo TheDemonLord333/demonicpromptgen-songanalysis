@@ -1,0 +1,8 @@
+// Vorlage: kopieren nach Config/Providers.local.xcconfig und eigene öffentliche Werte eintragen.
+// Diese Werte sind keine Secrets, gehören aber zu deinem Entwicklerkonto.
+
+SPOTIFY_CLIENT_ID = deine_spotify_client_id
+// Optional eigene Redirect-URI (muss exakt im Spotify Dashboard eingetragen sein):
+// SPOTIFY_REDIRECT_URI = demonicpromptgen:/$()/spotify-callback
+
+GOOGLE_IOS_CLIENT_ID = 1234567890-abcdefg.apps.googleusercontent.com

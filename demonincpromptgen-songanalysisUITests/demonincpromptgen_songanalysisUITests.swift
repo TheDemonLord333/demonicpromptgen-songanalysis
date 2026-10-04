@@ -2,40 +2,68 @@
 //  demonincpromptgen_songanalysisUITests.swift
 //  demonincpromptgen-songanalysisUITests
 //
-//  Created by David Martens on 04.10.26.
-//
 
 import XCTest
 
 final class demonincpromptgen_songanalysisUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
+    /// Hauptablauf ohne Anmeldung: Link eingeben, Prompt generieren, kopieren.
     @MainActor
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    func testGenerateAndCopyPromptWithoutLogin() throws {
         let app = XCUIApplication()
         app.launch()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let generate = app.buttons["generatePromptButton"]
+        XCTAssertTrue(generate.waitForExistence(timeout: 5))
+        XCTAssertFalse(generate.isEnabled, "Ohne gültigen Link muss die Generierung deaktiviert sein.")
+
+        let field = app.textFields["songURLField"]
+        XCTAssertTrue(field.waitForExistence(timeout: 5))
+        field.tap()
+        field.typeText("https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC?si=test")
+
+        XCTAssertTrue(generate.isEnabled)
+        generate.tap()
+
+        let prompt = app.staticTexts["promptText"]
+        XCTAssertTrue(prompt.waitForExistence(timeout: 5))
+        XCTAssertTrue(prompt.label.contains("Analysiere mir dieses Lied:"))
+        XCTAssertTrue(prompt.label.contains("https://open.spotify.com/track/4uLU6hMCjMI75M1A2tKUQC"))
+        XCTAssertFalse(prompt.label.contains("si=test"))
+
+        let copy = app.buttons["copyPromptButton"]
+        XCTAssertTrue(copy.isEnabled)
+        copy.tap()
     }
 
     @MainActor
-    func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
-        measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
-        }
+    func testInvalidLinkShowsValidation() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        let field = app.textFields["songURLField"]
+        XCTAssertTrue(field.waitForExistence(timeout: 5))
+        field.tap()
+        field.typeText("https://example.com/song")
+
+        XCTAssertTrue(app.staticTexts["validationMessage"].waitForExistence(timeout: 3)
+                      || app.otherElements["validationMessage"].exists)
+        XCTAssertFalse(app.buttons["generatePromptButton"].isEnabled)
+    }
+
+    @MainActor
+    func testSettingsSheetOpensAndCloses() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        app.buttons["settingsButton"].tap()
+        let done = app.buttons["settingsDoneButton"]
+        XCTAssertTrue(done.waitForExistence(timeout: 5))
+        done.tap()
+        XCTAssertTrue(app.buttons["generatePromptButton"].waitForExistence(timeout: 5))
     }
 }

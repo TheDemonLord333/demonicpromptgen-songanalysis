@@ -27,11 +27,26 @@
 		5DC358F4307302B900E908A8 /* demonincpromptgen-songanalysis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "demonincpromptgen-songanalysis.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC35903307302BF00E908A8 /* demonincpromptgen-songanalysisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "demonincpromptgen-songanalysisTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC3590D307302BF00E908A8 /* demonincpromptgen-songanalysisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "demonincpromptgen-songanalysisUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DC35921307302BF00E908A8 /* Providers.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Providers.xcconfig; sourceTree = "<group>"; };
+		5DC35922307302BF00E908A8 /* Providers.local.example.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Providers.local.example.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		5DC35920307302BF00E908A8 /* Exceptions for "demonincpromptgen-songanalysis" folder in "demonincpromptgen-songanalysis" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Info.plist,
+			);
+			target = 5DC358F3307302B900E908A8 /* demonincpromptgen-songanalysis */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5DC358F6307302B900E908A8 /* demonincpromptgen-songanalysis */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5DC35920307302BF00E908A8 /* Exceptions for "demonincpromptgen-songanalysis" folder in "demonincpromptgen-songanalysis" target */,
+			);
 			path = "demonincpromptgen-songanalysis";
 			sourceTree = "<group>";
 		};
@@ -75,11 +90,21 @@
 		5DC358EB307302B900E908A8 = {
 			isa = PBXGroup;
 			children = (
+				5DC35923307302BF00E908A8 /* Config */,
 				5DC358F6307302B900E908A8 /* demonincpromptgen-songanalysis */,
 				5DC35906307302BF00E908A8 /* demonincpromptgen-songanalysisTests */,
 				5DC35910307302BF00E908A8 /* demonincpromptgen-songanalysisUITests */,
 				5DC358F5307302B900E908A8 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		5DC35923307302BF00E908A8 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5DC35921307302BF00E908A8 /* Providers.xcconfig */,
+				5DC35922307302BF00E908A8 /* Providers.local.example.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		5DC358F5307302B900E908A8 /* Products */ = {
@@ -322,7 +347,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -380,7 +405,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -392,6 +417,7 @@
 		};
 		5DC35918307302BF00E908A8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC35921307302BF00E908A8 /* Providers.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -400,9 +426,14 @@
 				DEVELOPMENT_TEAM = LWL7HM459L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "demonincpromptgen-songanalysis/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Demonic Prompt Gen - Songanalyse";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Die App nutzt Apple Music (MusicKit) ausschließlich, um Songs im Apple-Music-Katalog zu suchen. Deine Mediathek wird nicht gelesen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -424,6 +455,7 @@
 		};
 		5DC35919307302BF00E908A8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DC35921307302BF00E908A8 /* Providers.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -432,9 +464,14 @@
 				DEVELOPMENT_TEAM = LWL7HM459L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "demonincpromptgen-songanalysis/Resources/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Demonic Prompt Gen - Songanalyse";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Die App nutzt Apple Music (MusicKit) ausschließlich, um Songs im Apple-Music-Katalog zu suchen. Deine Mediathek wird nicht gelesen.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -462,7 +499,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LWL7HM459L;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.thedemonlord333.demonincpromptgen-songanalysisTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,7 +521,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LWL7HM459L;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "me.thedemonlord333.demonincpromptgen-songanalysisTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
